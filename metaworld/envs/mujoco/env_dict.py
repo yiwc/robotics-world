@@ -490,6 +490,16 @@ MT50_V2 = OrderedDict((
     ('window-close-v2', SawyerWindowCloseEnvV2),
 ))
 
+class spec(object):
+    def __init__(self,id) -> None:
+        super().__init__()
+        self.id=id
+
+for k in MT50_V2.keys():
+    MT50_V2[k].spec=spec(k)
+    
+
+
 MT50_V2_ARGS_KWARGS = {
     key: dict(args=[],
               kwargs={'task_id': list(ALL_V2_ENVIRONMENTS.keys()).index(key)})
